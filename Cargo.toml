@@ -21,9 +21,17 @@ tokio = ["tokio_"]
 
 [dependencies]
 futures-util = { version = "0.3", default-features = false, features = ["std"] }
-notify = "5.0.0-pre.13"
+#notify = "5.0.0-pre.13"
 pin-project-lite = "0.1"
 tokio_ = { package = "tokio", version = "1", features = ["fs", "io-util", "sync", "time"], optional = true }
+
+# TODO: Set to pre.14 once released
+[dependencies.notify]
+git = "https://github.com/notify-rs/notify/"
+rev = "b3f2d77e5c66e896b7a133fabd649b143bfe8b9d"
+default-features = false
+features = ["macos_kqueue"]
+
 
 [dev-dependencies]
 doc-comment = "0.3"
